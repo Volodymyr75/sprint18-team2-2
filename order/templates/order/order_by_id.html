@@ -1,0 +1,18 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>Order's info</h2>
+    <p><b>Name of user      :</b>    {{ order_by_id.user.first_name }}</p>
+    <p><b>Book's name       :</b>    {{ order_by_id.book.name }}</p>
+    <p><b>Created at  :</b>    {{ order_by_id.created_at }}</p>
+    <p><b>End at     :</b>    {{order_by_id.end_at}}</p>
+    <p><b>Plated end at   :</b>    {{order_by_id.plated_at}}</p>
+    <a type="button" class="btn btn-primary" role="button" href="{% url 'orders' %}">Back ></a>
+
+{% endblock %}

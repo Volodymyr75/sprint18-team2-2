@@ -1,0 +1,46 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Authors</h2>
+
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Patronymic</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if authors %}
+    {% for author in authors %}
+    <tr>
+        <th scope="row">{{author.id}}</th>
+        <td>{{author.name}}</td>
+        <td>{{author.surname}}</td>
+        <td>{{author.patronymic}}</td>
+        <td><a type="button" class="btn btn-success btn-sm" href="{% url 'author_view' id=author.id %}">View</a>
+            <a type="button" class="btn btn-warning btn-sm" href="{% url 'author_update' id=author.id %}">Update</a>
+            <a type="button" class="btn btn-danger btn-sm" href="{% url 'author_delete' id=author.id %}">&#10008;
+                Delete</a></td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <p>Sorry, there is no any author in our list...</p>
+    {% endif %}
+    </tbody>
+
+</table>
+<h4><a type="button" class="btn btn-primary btn-sm" href=" {% url 'author_insert'%}">+ New author</a></h4>
+
+
+{% endblock %}

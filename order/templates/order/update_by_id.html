@@ -1,0 +1,29 @@
+{% extends "homepage/base.html" %}
+
+{%block content%}
+<form action="" method='post' autocomplete="off">
+  {% csrf_token %}
+
+  <div class="form-group col-md-6">
+    <label for="input-book-name">User</label><br>
+    {{form.user}}
+  </div>
+  <div class="form-group col-md-6"">
+    <label for="input-book-description">Description</label><br>
+    {{form.book}}
+  </div>
+  <div class="form-group col-md-6"">
+    <label for="input-book-authors">End at</label><br>
+    {{form.end_at}}
+  </div>
+  <div class="form-group col-md-6"">
+    <label for="input-book-available">Plated end at</label><br>
+    {{form.plated_end_at}}
+  </div>
+
+
+
+
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>
+{%endblock content %}

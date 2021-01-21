@@ -1,0 +1,22 @@
+{% extends 'homepage/base.html' %}
+{%load crispy_forms_tags %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+
+<h2>Author {{operation}}</h2>
+<form action="" method='post' autocomplete="off">
+    {% csrf_token %}
+    {{form.name|as_crispy_field}}
+    {{form.surname|as_crispy_field}}
+    {{form.patronymic|as_crispy_field}}
+    <button type = 'submit' class = "btn btn-success">Submit</button>
+</form>
+
+
+
+
+{% endblock content%}
